@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.test.mapper.UserMapper">
+
+	<resultMap id="User" type="com.test.entity.User">
+        <result property="id" column="user_id"/>
+        <result property="name" column="user_name"/>
+        <result property="age" column="qq"/>
+    </resultMap>
+
+    
+    <select id="getUserList" resultMap="User" >
+    SELECT user_id,user_name,qq FROM  t_user
+    </select>
+
+    <select id="getUserById" resultMap="User" parameterType="int">
+SELECT user_id,user_name,qq FROM  t_user WHERE user_id = #{userId}
+
+    </select>
+
+</mapper>
+

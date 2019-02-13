@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.test.mapper.JobMapper">
+
+	<resultMap id="Area" type="com.test.entity.Area">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="date" column="create_date"/>
+    </resultMap>
+
+    
+    <select id="findAll" resultMap="Area" >
+    SELECT id,name,create_date FROM  sys_area
+    </select>
+
+
+</mapper>
+
